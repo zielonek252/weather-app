@@ -3,7 +3,7 @@ QT += quick
 SOURCES += \
         main.cpp
 
-resources.files = main.qml  Wyszukanemiasto.qml Menu.qml
+resources.files = main.qml  Wyszukanemiasto.qml Menu.qml sun.png snow.png rain.png part-sun.png burza-deszcz.png
 resources.prefix = /$${TARGET}
 RESOURCES += resources
 
@@ -25,4 +25,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     Menu.qml \
-    Wyszukanemiasto.qml
+    Wyszukanemiasto.qml \
+    burza-deszcz.png \
+    part-sun.png \
+    rain.png \
+    snow.png \
+    sun.png
