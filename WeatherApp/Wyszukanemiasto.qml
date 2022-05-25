@@ -98,7 +98,7 @@ Item {
                                     "zrodlo": zrodlo[i],
                                     "temperaturaPogodyGodzinowej": (arr.hourly[i].temp
                                                                     - 273.15).toFixed(
-                                                                       1) + "'C"
+                                                                       0) + "'C"
                                 })
                 }
                 var zrodlo2 = []
@@ -119,9 +119,9 @@ Item {
                     }
                     lista.append({
                                      "tempMax": (arr.daily[i].temp.max - 273.15).toFixed(
-                                                    2) + " 'C",
+                                                    0) + " 'C",
                                      "tempMin": (arr.daily[i].temp.min - 273.15).toFixed(
-                                                    2) + " 'C",
+                                                    0) + " 'C",
                                      "zrodlo2": zrodlo2[i],
                                      "dataa": datadzis.getDate().toString(
                                                   ) + "." + (datadzis.getMonth(
@@ -157,13 +157,13 @@ Item {
         }
         GridView {
             id: gridView
-            x: -63
-            y: 267
-            width: 1981
+            x: -49
+            y: 246
+            width: 1469
             model: list
             height: 69
             cellHeight: 70
-            flickableDirection: Flickable.HorizontalAndVerticalFlick
+            flickableDirection: Flickable.HorizontalFlick
             layoutDirection: Qt.LeftToRight
             delegate: Item {
                 x: 5
@@ -203,6 +203,20 @@ Item {
         }
         ListModel {
             id: lista
+        }
+
+        Button {
+            id: button
+            y: 24
+            width: 58
+            height: 26
+            text: qsTr("Powrot")
+            anchors.left: parent.left
+            anchors.leftMargin: 19
+            display: AbstractButton.TextOnly
+            onClicked: {
+                stack.push("Menu.qml")
+            }
         }
     }
 
@@ -247,13 +261,18 @@ Item {
 
     ListView {
         id: listView
-        y: 400
-        height: 363
         anchors.left: parent.left
         anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.topMargin: 421
+        anchors.bottomMargin: 0
         anchors.rightMargin: 0
-        anchors.leftMargin: 0
+        anchors.leftMargin: 19
         model: lista
+        ScrollBar.vertical: ScrollBar {
+            active: true
+        }
         delegate: Item {
             x: 5
             width: 80
@@ -302,7 +321,8 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:2}D{i:3}D{i:4}D{i:10}D{i:1}D{i:12}D{i:11}D{i:13}D{i:14}
+    D{i:0;formeditorZoom:0.75}D{i:2}D{i:3}D{i:4}D{i:10}D{i:11}D{i:1}D{i:13}D{i:12}D{i:14}
+D{i:15}
 }
 ##^##*/
 
