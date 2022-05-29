@@ -267,8 +267,8 @@ Item {
         anchors.bottom: parent.bottom
         anchors.topMargin: 421
         anchors.bottomMargin: 0
-        anchors.rightMargin: 0
-        anchors.leftMargin: 19
+        anchors.rightMargin: 208
+        anchors.leftMargin: 208
         model: lista
         ScrollBar.vertical: ScrollBar {
             active: true
@@ -296,22 +296,20 @@ Item {
                     source: zrodlo2
                     fillMode: Image.PreserveAspectFit
                 }
-
-                Text {
-                    id: text8
-                    x: 250
-                    y: -42
-                    color: "#990000"
-                    text: tempMax
-                    font.pixelSize: 24
-                }
-
                 Text {
                     id: text7
                     x: 156
                     y: -42
                     color: "#0027c3"
                     text: tempMin
+                    font.pixelSize: 24
+                }
+                Text {
+                    id: text8
+                    x: 250
+                    y: -42
+                    color: "#990000"
+                    text: tempMax
                     font.pixelSize: 24
                 }
             }

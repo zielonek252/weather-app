@@ -6,22 +6,24 @@ Item {
     id: item1
     TextField {
         id: textField
-        y: 227
+        y: 195
         height: 26
         anchors.left: parent.horizontalCenter
         anchors.right: parent.horizontalCenter
-        anchors.rightMargin: -1
-        anchors.leftMargin: -147
+        anchors.rightMargin: -74
+        anchors.leftMargin: -74
         placeholderText: qsTr("Wpisz nazwe miasta")
     }
     Button {
         id: szukajMiasta
-        x: 335
+        x: 246
         y: 227
+        width: 148
+        height: 26
         text: qsTr("Szukaj")
         anchors.right: parent.horizontalCenter
-        anchors.rightMargin: -95
-        highlighted: false
+        anchors.rightMargin: -74
+        highlighted: true
         flat: true
         onClicked: {
             function miasto() {
@@ -49,13 +51,13 @@ Item {
 
     ListView {
         id: listView
-        y: 291
-        width: 640
+        y: 293
         model: listaOstatnioWyszukiwanych
-        height: 160
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-        anchors.horizontalCenter: parent.horizontalCenter
+        height: 179
+        anchors.left: parent.horizontalCenter
+        anchors.right: parent.horizontalCenter
+        anchors.leftMargin: -74
+        anchors.rightMargin: -74
         delegate: Item {
             x: 5
             width: 80
@@ -65,18 +67,21 @@ Item {
                 spacing: 10
                 Button {
                     id: button
-                    x: parent.width / 2
-                    y: -19
-                    width: 242
+                    y: 0
+                    x: 0
                     height: 26
+                    width: 135
                     text: name
                     onClicked: {
-
+                        stack.push("Wyszukanemiasto.qml", {
+                                       "nazwaMiasta": name
+                                   })
                     }
                 }
             }
         }
     }
+
     ListModel {
         id: listaOstatnioWyszukiwanych
         Component.onCompleted: {
@@ -101,11 +106,33 @@ Item {
             wyswietlBaze()
         }
     }
+
+    Text {
+        id: text1
+        y: 73
+        color: "#1b37ff"
+        text: qsTr("DRAWSKA")
+        font.letterSpacing: 4
+        font.pixelSize: 24
+        anchors.horizontalCenterOffset: 1
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    Text {
+        id: text2
+        y: 103
+        color: "#000000"
+        text: qsTr("POGODA")
+        font.letterSpacing: 4
+        font.pixelSize: 24
+        anchors.horizontalCenterOffset: 1
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
 }
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:1}D{i:2}D{i:3}D{i:7}
+    D{i:0;autoSize:true;height:480;width:640}D{i:1}D{i:2}D{i:3}D{i:7}D{i:8}D{i:9}
 }
 ##^##*/
 
