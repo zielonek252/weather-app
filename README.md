@@ -1,2 +1,2 @@
 # weather-app
-Marcin sztajnke nic noe robił
+Aplikacja pogodowa w QAML
